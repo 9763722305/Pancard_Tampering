@@ -1,4 +1,5 @@
 🪪 PAN Card Detection:
+
 A Python-based project that detects a PAN card in an image, extracts key details like PAN number, name, and date of birth using OCR and validates the information.
 
 📌 Objective
