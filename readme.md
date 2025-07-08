@@ -1,100 +1,76 @@
-🪪 PAN Card Detection
-A computer vision and OCR-based project that detects and extracts information from Indian PAN cards using image processing and text recognition techniques.
+🪪 PAN Card Detection:
+A Python-based project that detects a PAN card in an image, extracts key details like PAN number, name, and date of birth using OCR and validates the information.
 
-📌 Features
-📷 Detects and crops PAN card from an image
+📌 Objective
+To automatically detect and extract information from an image of an Indian PAN Card using Computer Vision and Optical Character Recognition (OCR) techniques.
 
-🔍 Extracts PAN number, name, and date of birth using OCR
+📷 What the Project Does (in Steps)
+Step 1: Input Image
+Accepts an image containing a PAN card (JPEG, PNG, etc.)
 
-✅ Validates extracted PAN numbers using regex
+It can be a full photo, scanned image, or camera snapshot
 
-🧠 (Optional) Deep learning model for improved detection
+Step 2: Image Pre-processing
+Converts the image to grayscale
 
-🔐 Handles sensitive data with privacy considerations
+Applies noise removal and thresholding
 
-🧠 Technologies Used
-Component	Tool/Library
-Programming Language -->	Python
+Optionally detects the document area and crops it using contour detection
+
+Step 3: Text Extraction (OCR)
+Uses Tesseract OCR to extract all visible text from the PAN card area
+
+Extracts raw text including name, PAN number, and DOB
+
+Step 4: Text Parsing and Validation
+Applies regex to:
+
+Detect and validate the PAN Number (Format: ABCDE1234F)
+
+Extract the Name and Date of Birth
+
+Validates the extracted text to match expected formats
+
+Step 5: Display or Save Output
+Prints or saves:
+
+PAN Number
+
+Name
+
+Date of Birth
+
+Optionally saves cropped PAN image and extracted text to a file
+
+🧠 Technologies and Libraries Used
+Component	Technology
+Programming Language	-->Python 3.12
 Image Processing	-->OpenCV
 OCR Engine	-->Tesseract OCR
-Pattern Matching	-->Regular Expressions (re)
-Deep Learning (Optional)	-->YOLO / CRNN / TensorFlow
+Text Parsing	-->Python re (regex)
+(Optional) DL Models	-->YOLO / CRNN
 
-🔧 Installation
-Clone the repository
+🔐 Privacy Note
+Please ensure:
 
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/pan-card-detection.git
-cd pan-card-detection
-Create a virtual environment (optional but recommended)
+PAN data is processed locally and securely
 
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-Install dependencies
+Avoid storing or sharing personal data unless necessary
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Install Tesseract OCR
+Mask sensitive data in any logs or exported files
 
-Download and install from: https://github.com/tesseract-ocr/tesseract
+💡 Future Improvements
+Add GUI using Streamlit or Flask
 
-Make sure to add Tesseract to your system PATH.
+Use deep learning for better card detection (YOLO/EAST)
 
-🚀 Usage
-bash
-Copy
-Edit
-python detect_pan.py --image sample_pan.jpg
-You can also use this in a GUI or web application by integrating with Flask or Streamlit.
+Export output in formats like PDF or Excel
 
-📝 Output
-Extracted PAN Number: ABCDE1234F
+Support for batch image processing
 
-Name: Siddharth Sharma
-
-Date of Birth: 01/01/1990
-
-(Optional): Cropped PAN card image saved as cropped_output.jpg
-
-📁 Project Structure
-graphql
-Copy
-Edit
-pan-card-detection/
-│
-├── detect_pan.py             # Main detection script
-├── utils/
-│   ├── image_utils.py        # Image pre-processing
-│   ├── ocr_utils.py          # OCR and text parsing
-├── test_images/              # Sample PAN card images
-├── requirements.txt
-└── README.md
-🛡️ Data Privacy Note
-This project processes sensitive identity information. Ensure:
-
-PAN card data is used responsibly
-
-Output is not stored unless required
-
-Personal data is masked or anonymized before sharing
-
-📚 Future Enhancements
-Add a Streamlit or Flask web interface
-
-Use deep learning for more accurate card detection
-
-Export results to PDF or JSON format
-
-🤝 Contributing
-Feel free to fork this repo and create pull requests. Contributions are welcome!
+🤝 Contribution Guidelines
+Contributions, bug reports, and feature requests are welcome!
+Please fork the repository and submit a pull request.
 
 📄 License
 This project is licensed under the MIT License.
-
